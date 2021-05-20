@@ -433,17 +433,19 @@
                     </div>
                 </div>
                 <div class="d-sm-flex justify-content-center">
-                    <form class="w-50">
+                    <form class="w-50" action="submitEmail.php" method="post">
                         <div class="row d-flex flex-row flex-wrap">
                             <div class="col input-textbox">
-                                <input type="text" id="txtemail" class="form-control" placeholder="Email">
+                                <input type="text" name="emailforcv" id="txtemail" class="form-control" placeholder="Email" onkeydown="checkEmail('sendbtn','txtemail')">
+
                             </div>
                             <div class="col">
                                 <div class="btn-submit">
-                                    <button type="submit" class="btn btn-success float-right">Send</button>
+                                    <button type="submit" class="btn btn-success float-right" id="sendbtn" disabled>Send</button>
                                 </div>
                             </div>
-                        </div>
+                        </div><br>
+                        <small class="form-text text-white">If you already send email then I will contact you soon...</small>
                     </form>
                 </div>
             </div>
