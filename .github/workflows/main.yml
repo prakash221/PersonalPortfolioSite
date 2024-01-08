@@ -1,0 +1,25 @@
+# // use SamKirkland/FTP-Deploy-Action to deploy to server with this github secret FTP_PASSWORD FTP_SERVER FTP_USERNAME
+name: Deploy
+on:
+  push:
+    branches:
+      - main
+      - production
+      - master
+jobs:
+  deploy:
+    name: Deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: FTP-Deploy-Action
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: ./
+          server-dir: /public_html
+## License
+
