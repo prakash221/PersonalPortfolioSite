@@ -3,7 +3,9 @@ name: Deploy
 on:
   push:
     branches:
+      - main
       - production
+      - master
 jobs:
   deploy:
     name: Deploy
